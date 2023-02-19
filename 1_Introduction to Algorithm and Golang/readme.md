@@ -1,0 +1,3 @@
+Pada sesi Introduction to Algorithm saya belajar terkait dengan konsep teori algoritma, fungsinya serta notasi yang digunakan seperti flowchart dan pseudocode. Saya juga makin paham terkait dengan penggunaan algoritma karena ada studi kasus yang digunakan sudah melatih logis dari algoritma.
+
+Pada sesi Basic Programming, saya belajar terkait persiapan environment pendukung seperti instalasi vscode dan golang version terbaru, pengenalan pemrograman dasar dari bahasa golang seperti struktur package, variabel, tipe data, percabangan, perulangan 
