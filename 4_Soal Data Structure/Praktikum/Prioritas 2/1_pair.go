@@ -1,15 +1,15 @@
 package main
 import "fmt"
 func PairSum(arr []int, target int) []int {
-    left, right := 0, len(arr)-1
-    for left < right {
-        sum := arr[left] + arr[right]
-        if sum == target {
-            return []int{left, right}
-        } else if sum < target {
-            left++
+    kiri, kanan := 0, len(arr)-1
+    for kiri < kanan {
+        jumlah := arr[kiri] + arr[kanan]
+        if jumlah == target {
+            return []int{kiri, kanan}
+        } else if jumlah < target {
+            kiri++
         } else {
-            right--
+            kanan--
         }
     }
     return []int{}
