@@ -18,4 +18,4 @@ Berikut adalah ringkasan materi yang telah saya pelajari pada course Struktur Da
 
 9. Method: function yang terkait dengan tipe data tertentu dan dapat diakses melalui variabel yang bertipe data tersebut.
 
-10. Recursion: teknik pemrograman yang memungkinkan sebuah function memanggil dirinya sendiri secara berulang untuk memecahkan sebuah masalah yang lebih besar menjadi masalah yang lebih kecil.
+10. Recursion: teknik pemrograman yang memungkinkan sebuah function memanggil dirinya sendiri secara berulang untuk memecahkan sebuah masalah yang lebih besar menjadi masalah yang lebih kecil
