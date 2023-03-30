@@ -7,6 +7,7 @@ Beberapa contoh notasi Big O yang sering digunakan, di antaranya:
 3. O(n^2) - kuadratik
 4. O(log n) - logaritmik
 5. O(n log n) - linier logaritmik
+
 Semakin rendah notasi Big O, semakin efisien algoritma.
 
 *Space Complexity*
@@ -18,6 +19,7 @@ Beberapa contoh notasi Big O yang sering digunakan, di antaranya:
 3. O(n^2) - kuadratik
 4. O(log n) - logaritmik
 5. O(n log n) - linier logaritmik
+
 Semakin rendah notasi Big O, semakin efisien algoritma dalam penggunaan ruang.
 
 Tips untuk mengoptimalkan Time Complexity dan Space Complexity
