@@ -2,30 +2,39 @@ package main
 
 import (
 	"fmt"
-
 )
 
 func ArrayMerge(arrayA, arrayB []string) []string {
-    merged := append(arrayA, arrayB...) // menggabungkan array
+    // membuat Map yang dapat menyimpan nilai unik
+    unique := make(map[string]bool)
 
-    mergedLength := len(merged)
-
-    // Menghapus elemen duplikat dengan time complexity logaritmik
-    if mergedLength < 2 {
-        return merged
+    // menambahkan semua value array A ke map
+    for _, value := range arrayA {
+        unique[value] = true
     }
 
-    writeIndex := 1
-    for readIndex := 1; readIndex < mergedLength; readIndex++ {
-        if merged[readIndex] != merged[readIndex-1] {
-            merged[writeIndex] = merged[readIndex]
-            writeIndex++
+    // menambahkan semua value array B ke map jika nilai tsb blm ada
+    for _, value := range arrayB {
+        if _, ok := unique[value]; !ok {
+            unique[value] = true
         }
     }
 
-    return merged[:writeIndex]
+    // membuat slice baru untuk value unik
+    merged := make([]string, 0, len(unique))
+    for key := range unique {
+        merged = append(merged, key)
+    }
+
+    return merged
 }
+
 
 func main (){
 	fmt.Println(ArrayMerge([]string{"king","devil jin","akuma"},[]string{"eddie","steve","geese"}))
+    fmt.Println(ArrayMerge([]string{"sergei","jin"},[]string{"jin","steve","bryan"}))
+    fmt.Println(ArrayMerge([]string{"alisa","yoshimitsu"},[]string{"devil jin","yoshimitsu","alisa","law"}))
+    fmt.Println(ArrayMerge([]string{},[]string{"devil jin","sergei"}))
+    fmt.Println(ArrayMerge([]string{"hwoarang"},[]string{}))
+    fmt.Println(ArrayMerge([]string{},[]string{}))
 }
