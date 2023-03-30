@@ -6,16 +6,15 @@ import (
 )
 
 func munculSekali(angka string) []int {
-    // Create a map to store the count of each number
+ // Buat map untuk menyimpan hitungan setiap angka
     count := make(map[int]int)
 
-    // Loop through the input string and count the occurrences of each number
+    // perulangan string input dan hitung kemunculan setiap angka   
     for _, char := range angka {
         num, _ := strconv.Atoi(string(char))
         count[num]++
     }
-
-    // Loop through the map and add the numbers that occur only once to the result slice
+// perulangan map dan tambahkan angka yang muncul hanya sekali ke potongan hasil
     result := []int{}
     for num, c := range count {
         if c == 1 {
