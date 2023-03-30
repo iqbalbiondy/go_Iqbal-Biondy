@@ -1,3 +1,5 @@
+Berikut adalah ringkasan materi yang telah saya pelajari pada course Time & Space Complexity, diantara lain:
+
 *Time Complexity*
 * Time Complexity adalah ukuran seberapa cepat algoritma dapat menyelesaikan masalah berdasarkan ukuran inputnya.
 * Notasi Big O digunakan untuk menyatakan Time Complexity dan menyatakan seberapa banyak waktu yang dibutuhkan untuk menyelesaikan suatu masalah, dengan mempertimbangkan ukuran inputnya.
