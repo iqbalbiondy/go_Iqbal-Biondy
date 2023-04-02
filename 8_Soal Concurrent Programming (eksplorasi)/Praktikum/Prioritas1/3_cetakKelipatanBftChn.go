@@ -11,12 +11,12 @@ func cetakKelipatan(ch chan<- int) {
             ch <- i
         }
 		// menunggu selama 3 detik sebelum mengirimkan bilangan berikutnya
-        time.Sleep(3 * time.Second) 
-    }
+        time.Sleep(3 * time.Second)     
+	}
 }
 
 func main() {
-    ch := make(chan int)
+    ch := make(chan int, 5) // buffer channel dengan kapasitas 5
     go cetakKelipatan(ch)
     for {
         fmt.Println(<-ch)
