@@ -1,78 +1,60 @@
-CREATE TABLE pelanggan (
-  id_pelanggan INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  nama_pelanggan VARCHAR(50) NOT NULL,
-  alamat TEXT NOT NULL,
-  tgl_lahir DATE NOT NULL,
-  status_user CHAR(2) NOT NULL,
-  gender CHAR(2) NOT NULL,
-  created_at VARCHAR(25) NOT NULL,
-  update_at VARCHAR(25) NOT NULL,
-  PRIMARY KEY(id_pelanggan)
-);
+-- Membuat database alta_online_shop
+CREATE DATABASE alta_online_shop;
 
-CREATE TABLE product (
-  idproduct INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  product VARCHAR(50) NOT NULL,
-  product_type VARCHAR(50) NOT NULL,
-  product_desc TEXT NOT NULL,
-  operator VARCHAR(25) NOT NULL,
-  payment_method VARCHAR(25) NOT NULL,
-  PRIMARY KEY(idproduct)
-);
+-- Tambahkan kolom ongkos_dasar di tabel shipping
+ALTER TABLE kurir
+ADD COLUMN ongkos_dasar FLOAT NOT NULL AFTER updated_at;
 
-CREATE TABLE transaksi (
-  id_transaksi INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+-- Mengganti nama tabel kurir menjadi shipping
+ALTER TABLE kurir
+RENAME TO shipping;
+
+-- Menghapus tabel shipping
+DROP TABLE IF EXISTS shipping;
+
+-- Menambahkan tabel payment_method_description dengan relasi 1-to-1 ke tabel product
+CREATE TABLE payment_method_description (
+  idpayment_method_description INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   product_idproduct INTEGER UNSIGNED NOT NULL,
-  pelanggan_id_pelanggan INTEGER UNSIGNED NOT NULL,
-  tgl_transaksi DATE NOT NULL,
-  total_harga FLOAT NOT NULL,
-  PRIMARY KEY(id_transaksi),
-  INDEX transaksi_FKIndex1(pelanggan_id_pelanggan),
-  INDEX transaksi_FKIndex2(product_idproduct),
-  FOREIGN KEY(pelanggan_id_pelanggan)
-    REFERENCES pelanggan(id_pelanggan)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION,
+  description TEXT NOT NULL,
+  PRIMARY KEY(idpayment_method_description),
+  INDEX payment_method_description_FKIndex1(product_idproduct),
   FOREIGN KEY(product_idproduct)
     REFERENCES product(idproduct)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
 );
 
-CREATE TABLE pelanggan_membeli (
+-- Menambahkan kolom alamat_id di tabel pelanggan sebagai foreign key ke tabel alamat
+ALTER TABLE pelanggan
+ADD COLUMN alamat_id INTEGER UNSIGNED NOT NULL AFTER alamat,
+ADD INDEX pelanggan_FKIndex1(alamat_id),
+FOREIGN KEY(alamat_id)
+  REFERENCES alamat(id_alamat)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
+
+-- Membuat tabel alamat
+CREATE TABLE alamat (
+  id_alamat INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  jalan VARCHAR(50) NOT NULL,
+  kota VARCHAR(50) NOT NULL,
+  PRIMARY KEY(id_alamat)
+);
+
+-- Menambahkan tabel user_payment_method_detail dengan relasi many-to-many antara pelanggan dan payment_method_description
+CREATE TABLE user_payment_method_detail (
   pelanggan_id_pelanggan INTEGER UNSIGNED NOT NULL,
-  product_idproduct INTEGER UNSIGNED NOT NULL,
-  PRIMARY KEY(pelanggan_id_pelanggan, product_idproduct),
-  INDEX pelanggan_has_product_FKIndex1(pelanggan_id_pelanggan),
-  INDEX pelanggan_has_product_FKIndex2(product_idproduct),
+  payment_method_description_idpayment_method_description INTEGER UNSIGNED NOT NULL,
+  PRIMARY KEY(pelanggan_id_pelanggan, payment_method_description_idpayment_method_description),
+  INDEX user_payment_method_detail_FKIndex1(pelanggan_id_pelanggan),
+  INDEX user_payment_method_detail_FKIndex2(payment_method_description_idpayment_method_description),
   FOREIGN KEY(pelanggan_id_pelanggan)
     REFERENCES pelanggan(id_pelanggan)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION,
-  FOREIGN KEY(product_idproduct)
-    REFERENCES product(idproduct)
+  FOREIGN KEY(payment_method_description_idpayment_method_description)
+    REFERENCES payment_method_description(idpayment_method_description)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
-);
-
-CREATE TABLE detail_transaksi (
-  id_detail_transaksi INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  transaksi_id_transaksi INTEGER UNSIGNED NOT NULL,
-  jumlah INTEGER UNSIGNED NOT NULL,
-  subtotal_harga FLOAT NOT NULL,
-  PRIMARY KEY(id_detail_transaksi),
-  INDEX detail_transaksi_FKIndex1(transaksi_id_transaksi),
-  FOREIGN KEY(transaksi_id_transaksi)
-    REFERENCES transaksi(id_transaksi)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION
-);
-
-CREATE TABLE kurir (
-  id_kurir INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  name VARCHAR(50) NOT NULL,
-  created_at VARCHAR(50) NOT NULL,
-  updated_at VARCHAR(50) NOT NULL,
-  PRIMARY KEY(id_kurir)
-);
-
+)
