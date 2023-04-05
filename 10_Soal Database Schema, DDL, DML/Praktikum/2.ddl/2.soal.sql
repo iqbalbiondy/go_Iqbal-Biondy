@@ -75,3 +75,4 @@ CREATE TABLE kurir (
   updated_at VARCHAR(50) NOT NULL,
   PRIMARY KEY(id_kurir)
 );
+
