@@ -10,9 +10,9 @@ VALUES
 #     2. Insert 3 product type.
 INSERT INTO product_types (name, created_at, updated_at)
 VALUES
-("Produk Tipe Basah", NOW(), NOW()),
-("Produk Tipe Kering", NOW(), NOW()),
-("Produk Tipe Lembab", NOW(), NOW());
+("Product Type 1", NOW(), NOW()),
+("Product Type 2", NOW(), NOW()),
+("Product Type 3", NOW(), NOW());
 #     3. Insert 2 product dengan product type id = 1, dan operators id = 3.
 INSERT INTO products (product_type_id, operator_id, code, name, status, created_at, updated_at)
 VALUES
@@ -36,21 +36,21 @@ VALUES
 #     6. Insert product description pada setiap product.
 INSERT INTO product_descriptions (id, description, created_at, updated_at)
 VALUES
-(1, "Deskripsi Produk 1", NOW(), NOW()),
-(2, "Deskripsi Produk 2", NOW(), NOW()),
-(3, "Deskripsi Produk 3", NOW(), NOW()),
-(4, "Deskripsi Produk 4", NOW(), NOW()),
-(5, "Deskripsi Produk 5", NOW(), NOW()),
-(6, "Deskripsi Produk 6", NOW(), NOW()),
-(7, "Deskripsi Produk 7", NOW(), NOW()),
-(8, "Deskripsi Produk 8", NOW(), NOW());
+(1, "Description of Product 1", NOW(), NOW()),
+(2, "Description of Product 2", NOW(), NOW()),
+(3, "Description of Product 3", NOW(), NOW()),
+(4, "Description of Product 4", NOW(), NOW()),
+(5, "Description of Product 5", NOW(), NOW()),
+(6, "Description of Product 6", NOW(), NOW()),
+(7, "Description of Product 7", NOW(), NOW()),
+(8, "Description of Product 8", NOW(), NOW());
 
 #     7. Insert 3 payment methods.
 INSERT INTO payment_methods (name, status, created_at, updated_at)
 VALUES
-("Metode Pembayaran 1", 1, NOW(), NOW()),
-("Metode Pembayaran 2", 1, NOW(), NOW()),
-("Metode Pembayaran 3", 1, NOW(), NOW());
+("Payment Method 1", 1, NOW(), NOW()),
+("Payment Method 2", 1, NOW(), NOW()),
+("Payment Method 3", 1, NOW(), NOW());
 
 #     8. Insert 5 user pada tabel user.
 INSERT INTO users (status, dob, gender, created_at, updated_at)
@@ -75,3 +75,9 @@ FROM transactions t
 CROSS JOIN products p
 WHERE t.user_id BETWEEN 1 AND 5
 LIMIT 3;
+
+UPDATE users SET nama = 'Admaja Dwi Herlambang' WHERE id = 1;
+UPDATE users SET nama = 'Faizatul Amalia' WHERE id = 2;
+UPDATE users SET nama = 'Fitra A Bachtiar' WHERE id = 3;
+UPDATE users SET nama = 'Asa Fitri Sabila' WHERE id = 4;
+UPDATE users SET nama = 'Satrio Agung Wicaksono' WHERE id = 5;

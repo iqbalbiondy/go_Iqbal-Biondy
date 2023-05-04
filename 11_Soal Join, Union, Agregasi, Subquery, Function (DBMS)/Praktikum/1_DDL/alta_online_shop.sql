@@ -1,4 +1,3 @@
-create database alta_online_shop;
 use alta_online_shop;
 
 CREATE TABLE product_types (
@@ -84,3 +83,7 @@ CREATE TABLE users (
   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
+
+ALTER TABLE users ADD nama VARCHAR(255);
+
+
