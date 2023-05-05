@@ -1,4 +1,4 @@
-
+Berikut adalah beberapa ringkasan materi yang saya buat mengenai Unit Testing:
 
 1. Unit Testing adalah teknik pengujian perangkat lunak yang bertujuan untuk memastikan bahwa setiap unit (yaitu, fungsi atau metode) dari kode yang dibuat berjalan dengan benar dan sesuai dengan spesifikasi yang telah ditetapkan.
 
