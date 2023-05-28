@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/models"
+	"github.com/iqbalbiondy/go_Iqbal-Biondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/models"
 	"gorm.io/driver/mysql" 
 	"gorm.io/gorm"
 )
