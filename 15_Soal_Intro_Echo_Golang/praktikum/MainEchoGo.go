@@ -13,82 +13,94 @@ type User struct {
 	Email    string `json:"email" form:"email"`
 	Password string `json:"password" form:"password"`
 }
-                                                              
+
 var users []User
 
-// get all users
-func GetUsersController(c echo.Context) error {
-	return c.JSON(http.StatusOK, map[string]interface{}{
-		"message": "success get all users",
+// Controller
+func GetUsersController(e echo.Context) error {
+	if len(users) == 0 {
+		return e.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": "Data empty",
+		})
+	}
+	return e.JSON(http.StatusOK, map[string]interface{}{
+		"message": "Success get all users",
 		"users":   users,
 	})
 }
 
-// get user by id
-func GetUserController(c echo.Context) error {
-	id, _ := strconv.Atoi(c.Param("id"))
-	for _, user := range users {
-		if user.Id == id {
-			return c.JSON(http.StatusOK, map[string]interface{}{
-				"message": "success get user by id",
-				"user":    user,
-			})
+func GetUserController(e echo.Context) error {
+	getId, _ := strconv.Atoi(e.Param("id"))
+	user := []interface{}{}
+
+	for i := 0; i <= len(users)-1; i++ {
+		if users[i].Id == getId {
+			user = append(user, users[i])
 		}
 	}
-	return c.JSON(http.StatusNotFound, map[string]interface{}{
-		"message": "user not found",
+	if len(user) == 0 {
+		return e.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": "User not found",
+		})
+	}
+
+	return e.JSON(http.StatusOK, map[string]interface{}{
+		"message": "Success get user",
+		"user":    user,
 	})
 }
 
-// delete user by id
-func DeleteUserController(c echo.Context) error {
-	id, _ := strconv.Atoi(c.Param("id"))
-	for i, user := range users {
-		if user.Id == id {
-			users = append(users[:i], users[i+1:]...)
-			return c.JSON(http.StatusOK, map[string]interface{}{
-				"message": "success delete user",
-			})
-		}
-	}
-	return c.JSON(http.StatusNotFound, map[string]interface{}{
-		"message": "user not found",
-	})
-}
-
-// update user by id
-func UpdateUserController(c echo.Context) error {
-	id, _ := strconv.Atoi(c.Param("id"))
-	for i, user := range users {
-		if user.Id == id {
-			// binding updated data
-			updatedUser := new(User)
-			if err := c.Bind(updatedUser); err != nil {
-				return err
+func DeleteUserController(e echo.Context) error {
+	id, _ := strconv.Atoi(e.Param("id"))
+	dataDihapus := User{}
+	for i := 0; i < len(users)-1; i++ {
+		if id == users[i].Id {
+			dataDihapus = User{
+				Id:       users[i].Id,
+				Name:     users[i].Name,
+				Email:    users[i].Email,
+				Password: users[i].Password,
 			}
-			// update user data
-			users[i].Name = updatedUser.Name
-			users[i].Email = updatedUser.Email
-			users[i].Password = updatedUser.Password
+			users = append(users[:i], users[i+1:]...)
+		}
+	}
+	return e.JSON(http.StatusOK, map[string]interface{}{
+		"message": "Success Delete User",
+		"users":   dataDihapus,
+	})
 
-			return c.JSON(http.StatusOK, map[string]interface{}{
-				"message": "success update user",
-				"user":    users[i],
+}
+
+func UpdateUserController(c echo.Context) error {
+	// your solution here
+	user := User{}
+	c.Bind(&user)
+
+	id, _ := strconv.Atoi(c.Param("id"))
+
+	for i := 0; i < len(users)-1; i++ {
+		if id == users[i].Id {
+			users[i].Id = user.Id
+			users[i].Name = user.Name
+			users[i].Email = user.Email
+			users[i].Password = user.Password
+		} else {
+			return c.JSON(http.StatusBadRequest, map[string]interface{}{
+				"message": "User not found",
 			})
 		}
 	}
-	return c.JSON(http.StatusNotFound, map[string]interface{}{
-		"message": "user not found",
+
+	return c.JSON(http.StatusOK, map[string]interface{}{
+		"message": "Success Edit User",
+		"users":   user,
 	})
 }
 
-// create new user
-func CreateUserController(c echo.Context) error {
-	// binding data
-	user := new(User)
-	if err := c.Bind(user); err != nil {
-		return err
-	}
+func CreateUserController(e echo.Context) error {
+
+	user := User{}
+	e.Bind(&user)
 
 	if len(users) == 0 {
 		user.Id = 1
@@ -96,9 +108,11 @@ func CreateUserController(c echo.Context) error {
 		newId := users[len(users)-1].Id + 1
 		user.Id = newId
 	}
-	users = append(users, *user)
-	return c.JSON(http.StatusOK, map[string]interface{}{
-		"message": "success create user",
+
+	users = append(users, user)
+
+	return e.JSON(http.StatusOK, map[string]interface{}{
+		"message": "Success add user",
 		"user":    user,
 	})
 }
@@ -106,13 +120,12 @@ func CreateUserController(c echo.Context) error {
 func main() {
 	e := echo.New()
 
-	// routing
+	// route
 	e.GET("/users", GetUsersController)
 	e.GET("/users/:id", GetUserController)
-	e.POST("/users", CreateUserController)
 	e.DELETE("/users/:id", DeleteUserController)
+	e.POST("/users", CreateUserController)
 	e.PUT("/users/:id", UpdateUserController)
 
-	// start the server
-	e.Start(":8000")
+	e.Start(":8080")
 }
