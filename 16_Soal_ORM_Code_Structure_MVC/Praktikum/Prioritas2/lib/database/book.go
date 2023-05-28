@@ -3,8 +3,8 @@ package database
 import (
 	"errors"
 
-	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Prioritas2/config"
-	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Prioritas2/models"
+	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/config"
+	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/models"
 )
 
 func GetBooks() ([]models.Book, error) {

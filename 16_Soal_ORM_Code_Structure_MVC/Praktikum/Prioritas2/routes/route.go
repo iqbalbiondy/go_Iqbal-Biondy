@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Prioritas2/controller"
+	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/controller"
 	"github.com/labstack/echo/v4"
 )
 

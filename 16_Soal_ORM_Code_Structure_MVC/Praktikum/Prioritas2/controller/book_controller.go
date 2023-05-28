@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Prioritas2/lib/database"
-	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Prioritas2/models"
+	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/lib/database"
+	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/models"
 	"github.com/labstack/echo/v4"
 )
 

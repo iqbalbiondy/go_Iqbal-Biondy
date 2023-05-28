@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Prioritas2/config"
-	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Prioritas2/routes" 
+	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/config"
+	"github.com/iqbalbiondy/16_Soal_ORM_Code_Structure_MVC/Praktikum/Prioritas2/routes" 
 )
 
 func main() {
