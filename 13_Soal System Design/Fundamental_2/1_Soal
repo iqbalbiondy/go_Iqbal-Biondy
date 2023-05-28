@@ -1,9 +1,0 @@
-// Jika data dalam bentuk hash pada Redis berikut adalah sintaknya
-HGETALL users
-
-// Neo4j
-MATCH (u:User) RETURN u;
-
-// Cassandra
-SELECT * FROM users;
-
