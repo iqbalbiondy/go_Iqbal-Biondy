@@ -67,5 +67,3 @@ func TestLogin(t *testing.T) {
 		assert.Equal(t, "", res)
 	})
 }
-
-// go test ./praktikum/businesses/users/usecase_test.go -coverpkg=./praktikum/businesses/users/...
