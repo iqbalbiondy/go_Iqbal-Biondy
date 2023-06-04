@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "a4c323f9-4883-44fc-a942-ed8b2b08265f",
+		"name": "TugasDEPLOYGOAWSDOCKER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27255365",
+		"_collection_link": "https://www.postman.com/flight-specialist-11576642/workspace/awsgo/collection/27255365-a4c323f9-4883-44fc-a942-ed8b2b08265f?action=share&creator=27255365&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "GetDATA_FirstTime",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "secret",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://54.163.19.112:8080/users",
+					"protocol": "http",
+					"host": [
+						"54",
+						"163",
+						"19",
+						"112"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://54.163.19.112:8080/users",
+							"protocol": "http",
+							"host": [
+								"54",
+								"163",
+								"19",
+								"112"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Jun 2023 06:35:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"data empty\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PostData_FirstTime",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "secret",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"helmihy@gmail.com\",\n    \"password\":\"menjadis2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://54.163.19.112:8080/users",
+					"protocol": "http",
+					"host": [
+						"54",
+						"163",
+						"19",
+						"112"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"yogasugitha@gmail.com\",\n    \"password\":\"menjadiwibusejati\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://54.163.19.112:8080/users",
+							"protocol": "http",
+							"host": [
+								"54",
+								"163",
+								"19",
+								"112"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Jun 2023 06:38:24 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"email\": \"yogasugitha@gmail.com\",\n        \"password\": \"menjadiwibusejati\"\n    }\n}"
+				},
+				{
+					"name": "200 Succes (1)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"helmihy@gmail.com\",\n    \"password\":\"menjadis2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://54.163.19.112:8080/users",
+							"protocol": "http",
+							"host": [
+								"54",
+								"163",
+								"19",
+								"112"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Jun 2023 06:40:50 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"email\": \"helmihy@gmail.com\",\n        \"password\": \"menjadis2\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetDATA_Next",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://54.163.19.112:8080/users",
+					"protocol": "http",
+					"host": [
+						"54",
+						"163",
+						"19",
+						"112"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://54.163.19.112:8080/users",
+							"protocol": "http",
+							"host": [
+								"54",
+								"163",
+								"19",
+								"112"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Jun 2023 06:40:08 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "135"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"email\": \"iqbalbiondy@gmail.com\",\n            \"password\": \"iqbalbiondy\"\n        },\n        {\n            \"email\": \"yogasugitha@gmail.com\",\n            \"password\": \"menjadiwibusejati\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "200 Success (1)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://54.163.19.112:8080/users",
+							"protocol": "http",
+							"host": [
+								"54",
+								"163",
+								"19",
+								"112"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Jun 2023 06:41:29 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "188"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"email\": \"iqbalbiondy@gmail.com\",\n            \"password\": \"iqbalbiondy\"\n        },\n        {\n            \"email\": \"yogasugitha@gmail.com\",\n            \"password\": \"menjadiwibusejati\"\n        },\n        {\n            \"email\": \"helmihy@gmail.com\",\n            \"password\": \"menjadis2\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}

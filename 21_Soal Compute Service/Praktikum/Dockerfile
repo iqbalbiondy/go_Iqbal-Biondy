@@ -1,16 +1,25 @@
-FROM golang:1.20-alpine
+FROM golang:1.20-alpine as builder
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
-
-RUN go mod download
+# ARG db_host "default-value-arg"
+# ENV DBHOST=${db_host}
 
 COPY . .
 
-RUN go build -o /docker-gs-ping
+RUN go mod download
+RUN go build -o api app/main.go
+
+#runner 
+FROM alpine:3.15
+
+COPY --from=builder /app/api /app/
+# RUN apk add --no-cache bash
+
+WORKDIR /app
 
 EXPOSE 8080
 
-CMD [ "/docker-gs-ping" ]
+CMD ["./api"]
+
+
