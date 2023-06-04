@@ -9,6 +9,7 @@ import (
 	migrate "Praktikum/migrator"
 	mysql_users "Praktikum/repository/mysql/users"
 	"github.com/labstack/echo/v4"
+	_ "github.com/labstack/echo/v4"
 )
 
 func main() {
