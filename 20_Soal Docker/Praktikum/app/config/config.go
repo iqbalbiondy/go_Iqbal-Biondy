@@ -9,8 +9,8 @@ func InitDB() (DB *gorm.DB) {
 	var (
 		DBNAME = "latihan_clean"
 		DBUSER = "iqbal"
-		DBPASS = "iqbal"
-		DBHOST = "127.0.0.1"
+		DBPASS = "iqbalbiondy"
+		DBHOST = "iqbaldb.cs8qgr0edqzk.us-east-1.rds.amazonaws.com"
 		DBPORT = "3306"
 	)
 
