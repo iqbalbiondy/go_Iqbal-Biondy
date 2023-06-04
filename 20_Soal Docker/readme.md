@@ -92,4 +92,4 @@ Berikut adalah beberapa ringkasan materi yang saya buat mengenai Docker:
 17. menguji inputan data yang telah dimasukkan dari postman dengan melihat langsung isi dari databasenya
 
     ![image](./Screenshoot/17_TestingInputDataInDB.png)
-        ![image](./Screenshoot/18_TestingInputDataInDB_2.png)
+        ![image](./Screenshoot/18_TestingInputDataInDB_`2.png)
