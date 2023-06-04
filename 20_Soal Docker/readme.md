@@ -19,3 +19,77 @@ Berikut adalah beberapa ringkasan materi yang saya buat mengenai Docker:
 9. Docker dapat membantu pengembang mempercepat waktu pengembangan, meningkatkan portabilitas aplikasi, dan mengurangi biaya infrastruktur.
 
 10. Docker dapat digunakan pada berbagai macam proyek, dari proyek kecil hingga proyek besar dan kompleks, dan pada berbagai lingkungan, termasuk lingkungan pengembangan, pengujian, dan produksi.
+
+
+## Praktikum - Docker & AWS Compute Service
+
+---
+
+1.  Melakukan konfigurasi EC2
+
+    ![image](./Screenshoot/1_ConfigureEC2.png)
+
+2.  Membuat Create Key Pair
+
+    ![image](./Screenshoot/2_CreateKeyPair.png)
+
+3.  Menyetting Network Setting
+
+    ![image](./Screenshoot/3_NetworkSetting.png)
+
+4.  EC2 Instance berhasil dibuat
+
+    ![image](./Screenshoot/4_EC2Sucessfully.png)
+
+5.  mengkoneksi _instance EC2_ dari lokal komputer
+
+    ![image](./Screenshoot/5_ConnectLocalToEC2.png)
+
+6.  melakukan instalasi docker
+
+    ![image](./Screenshoot/6_InstallDocker.png)
+
+7.  melakukan instalasi & konfigurasi docker compose
+
+    ![image](./Screenshoot/7_DockerCompose.png)
+
+8.  melakukan clonning github ke instance EC2
+
+    ![image](./Screenshoot/8_CloneGitHub.png)
+
+9.  Melakukan Build Docker Image
+
+    ![image](./Screenshoot/9_BuildDockerImage.png)
+
+10. melakukan deploymen AWS RDS dengan memilih MySQL sebagai database
+
+    ![image](./Screenshoot/10_choosingRDSMySQL.png)
+
+11. melakukan konfigurasi MySQL di AWS RDS
+
+    ![image](./Screenshoot/11_ConfigureMySQL.png)
+
+12. AWS RDS MySQL Berhasil dibuat
+
+    ![image](./Screenshoot/12_RDSMySQLSuccessfully.png)
+
+13. melakukan koneksi dari AWS RDS dengan database MySQL ke ubuntu intance EC2
+
+    ![image](./Screenshoot/13_ConnectMySQLEC2.png)
+
+14. Buid, Push _Image Docker_ ke docker hub dan Pull _Image Docker_ dari instance EC2
+
+    ![image](./Screenshoot/14_Build&Pushdocker.png)
+
+15. melakukan run Docker image
+
+    ![image](./Screenshoot/15_DockerRunSuccesfully.png)
+
+16. mengakses project GO ke postman yang telah berjalan di docker image 
+
+    ![image](./Screenshoot/16_AccessedGoProjectInPostman.png)
+
+17. menguji inputan data yang telah dimasukkan dari postman dengan melihat langsung isi dari databasenya
+
+    ![image](./Screenshoot/17_TestingInputDataInDB.png)
+        ![image](./Screenshoot/18_TestingInputDataInDB_2.png)
